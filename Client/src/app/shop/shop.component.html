@@ -1,56 +1,88 @@
-<div class="container">
+<div class="container-fluid shop-container">
+
+    <!-- Filter/Search/Sort -->
+
+    <div class="d-flex justify-content-start col-sm-12 col-xs-12 ms-5 mb-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-filter"
+            viewBox="0 0 16 16">
+            <path
+                d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+        </svg>
+    </div>
     <div class="row">
-        <section class="col-3">
-            <h5 class="text-warning ms-3">Sort</h5>
-            <select class="form-select mb-4" (change)="onSortSelected($event)">
+        <section class="col-2">
+
+            <!-- Sort -->
+
+            <h5 class="ms-3">Sort</h5>
+            <select class="form-select mb-4 rounded-0" (change)="onSortSelected($event)">
                 <option *ngFor="let sort of sortOptions" [value]="sort.value">
                     {{sort.name}}
                 </option>
             </select>
-            <h5 class="text-warning ms-3">Brands</h5>
-            <ul class="list-group m-3">
-                <li class="list-group-item" 
-                    *ngFor="let brand of brands" 
-                    [class.active]="brand.id === shopParams.brandId"
-                    [value]="brand.id" 
+
+            <!-- Filter -->
+
+            <h5 class="ms-3">Brands</h5>
+            <ul class="list-group list-group-brands m-3">
+                <li class="list-group-item rounded-0" *ngFor="let brand of brands"
+                    [class.active]="brand.id === shopParams.brandId" [value]="brand.id"
                     (click)="onBrandSelected(brand.id)">{{brand.name}}</li>
             </ul>
-            <h5 class="text-warning ms-3">Types</h5>
-            <ul class="list-group m-3">
-                <li class="list-group-item" 
-                    *ngFor="let type of types" 
-                    [class.active]="type.id === shopParams.typeId"
-                    [value]="type.id" 
-                    (click)="onTypeSelected(type.id)">{{type.name}}</li>
+            <h5 class="ms-3">Types</h5>
+            <ul class="list-group list-group-types m-3">
+                <li class="list-group-item rounded-0" *ngFor="let type of types"
+                    [class.active]="type.id === shopParams.typeId" [value]="type.id" (click)="onTypeSelected(type.id)">
+                    {{type.name}}</li>
             </ul>
         </section>
-        <section class="col-9">
-            <div class="d-flex justify-content-between align-items-center pb-2">
-                <app-paging-header
-                [totalCount]="totalCount"
-                [pageNumber]="shopParams.pageNumber"
-                [pageSize]="shopParams.pageSize"
-                >
+
+        <section class="col-10">
+
+            <!-- Paging Header -->
+
+            <div class="paging-header mb-5 d-flex justify-content-between align-items-center mx-5">
+                <app-paging-header [totalCount]="totalCount" [pageNumber]="shopParams.pageNumber"
+                    [pageSize]="shopParams.pageSize">
                 </app-paging-header>
-                <div class="d-flex mt-2">
-                    <input (keyup.enter)="onSearch()" type="text" placeholder="Search" class="form-control me-2" #search>
-                    <button (click)="onSearch()" class="btn btn-outline-primary mx-2">Search</button>
-                    <button (click)="onReset()" class="btn btn-outline-primary mx-2">Reset</button>
+
+                <!-- Search -->
+
+                <div class="search d-flex justify-content-center align-items-center">
+                    <input (keyup.enter)="onSearch()" type="text" placeholder="Search" #search>
+                    <a class="px-2" (click)="onSearch()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="bi bi-search"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </a>
+                    <a (click)="onReset()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" class="bi bi-x"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </a>
                 </div>
             </div>
 
-            <div class="row row-cols-3 g-3 mb-4">
-                <div class="col" *ngFor="let product of products">
-                    <app-product-item [product]="product"></app-product-item>
+            <!-- Product Cards -->
+
+            <div class="row d-flex justify-content-center align-items-center px-5">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mb-5" *ngFor="let product of products">
+                    <div class="product ms-4 p-0">
+                        <app-product-item [product]="product"></app-product-item>
+                    </div>
                 </div>
             </div>
-            <div class="d-flex justify-content-center" *ngIf="totalCount > 0">
-                <app-pager
-                    [totalCount]="totalCount"
-                    [pageSize]="shopParams.pageSize"
-                    (pageChanged)="onPageChanged($event)"
-                ></app-pager>
-            </div>
         </section>
+    </div>
+
+    <!-- Pagination -->
+
+    <div class="pagination col-12 d-flef justify-content-center mt-5" *ngIf="totalCount > 0">
+        <app-pager [totalCount]="totalCount" [pageSize]="shopParams.pageSize" (pageChanged)="onPageChanged($event)">
+        </app-pager>
     </div>
 </div>

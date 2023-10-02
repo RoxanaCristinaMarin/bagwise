@@ -1,0 +1,47 @@
+.shop-container {
+    margin-top: 25vh;
+    margin-bottom: 10vh;
+}
+
+.paging-header {
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-top: -2.8rem;
+    padding-bottom: 20px;
+}
+
+.list-group-brands .list-group-item.active {
+    background-color: rgb(22, 158, 216);
+}
+
+.list-group-brands .list-group-item{
+    border-left-color: #fff;
+    border-right-color: #fff;
+}
+
+.list-group-brands > li {
+    cursor: pointer;
+}
+
+.list-group-types .list-group-item.active {
+    background-color: rgb(22, 158, 216);
+}
+
+.list-group-types .list-group-item{
+    border-left-color: #fff;
+    border-right-color: #fff;
+}
+
+.list-group-types > li {
+    cursor: pointer;
+}
+
+.search a {
+    cursor: pointer;
+}
+
+.search input {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+

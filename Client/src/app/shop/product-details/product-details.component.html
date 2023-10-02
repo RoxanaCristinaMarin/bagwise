@@ -1,0 +1,25 @@
+<div class="row product-details" *ngIf="product">
+    <div class="col-6">
+        <img src="{{product.pictureUrl}}" alt="{{product.name}}" class="w-100"
+            style="border: 1px solid rgb(206, 206, 206);">
+    </div>
+    <div class="col-6 mt-5 px-5">
+        <h2>{{product.name}}</h2>
+        <p style="color: rgb(48, 159, 223); font-size: 2em;">{{product.price | currency}}</p>
+        <div class="row mt-4">
+            <h4>Description</h4>
+            <p>{{product.description}}</p>
+        </div>
+        <div class="d-flex justify-content-start align-items-center mt-5">
+            <i class="fa fa-minus me-2 p-2" style="cursor: pointer; font-size: 1em; color: rgb(48, 159, 223); border: 1px solid #d6d5d5;"></i>
+            <span class="font-weight-bold" style="font-size: 1.5em;">2</span>
+            <i class="fa fa-plus ms-2 p-2" style="cursor: pointer; font-size: 1em; color: rgb(48, 159, 223); border: 1px solid #d6d5d5;"></i>
+        </div>
+        <div class="d-flex justify-content-start alighn-items-center">
+            <button class="btn rounded-0 btn-outline-secondary mt-3">
+                <i class="fa fa-shopping-cart me-2" style="cursor: pointer; font-size: 1em; color: rgb(48, 159, 223)"></i>
+                Add to cart
+            </button>
+        </div>
+    </div>
+</div>

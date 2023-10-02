@@ -1,11 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+
+// Logo style
+
+.logo {
+    cursor: pointer;
+}
+
+nav {
+    font-family: 'Montserrat', sans-serif;
+}
+
+// Shopping cart button style
+
+.shopping-cart-btn {
+    cursor: pointer;
+}
+
+.shopping-cart-btn:hover {
+    .cart-no {
+        background-color: rgb(22, 158, 216) !important;
+    }
+
+    .fa-shopping-cart {
+        color: rgb(75, 75, 75) !important;
+    }
+}
+
 .cart-no {
     position: absolute;
     min-height: 25px;
     min-width: 25px;
     border-radius: 50%;
-    background: blue;
+    background: rgb(40, 114, 156);
     color: white;
     text-align: center;
-    top: -12px;
-    right: 23px;
+    top: -14px;
+    left: 17px;
 }
+
+// Login/Register button style
+
+.btn {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.btn:hover {
+    color: rgb(22, 158, 216);
+}
+
+a {
+    text-decoration: none;
+    color: #343840;
+
+    &.active {
+        color: rgb(22, 158, 216);
+    }
+}
+
+
+
+
+

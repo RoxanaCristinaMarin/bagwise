@@ -8,7 +8,7 @@ import { PagerComponent } from './pager/pager.component';
 @NgModule({
   declarations: [
     PagingHeaderComponent,
-    PagerComponent
+    PagerComponent,
   ],
   imports: [
     CommonModule,
